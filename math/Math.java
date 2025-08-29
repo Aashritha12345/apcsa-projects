@@ -41,6 +41,10 @@ class Math {
 
     // Create 3 variables of each of the above types (USE GOOD CODING PRACTICE WHEN
     // CREATING THE VARIABLES
+    // int stepCount = 3000;
+    // double caloriesBurned = 500.25
+    // boolean isDailygoalMet = true
+
 
     // MATH TIME!
 
