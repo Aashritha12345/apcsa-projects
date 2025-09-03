@@ -1,4 +1,7 @@
-/*package math;
+/*public class InnerMath {
+
+  
+}package math;
 
 class Math {
 <<<<<<< HEAD
