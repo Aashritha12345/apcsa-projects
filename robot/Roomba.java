@@ -16,7 +16,7 @@ public class Roomba implements Directions {
 	}
 
 	// declared here so it is visible in all the methods!
-	private Robot roomba = new Robot(9,8,South,10);;
+	private Robot roomba = new Robot(7,6,East,10);;
 
 	// You will need to add many variables!!
 
@@ -28,6 +28,7 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
+		World.setDelay(10);
 
 
 		/** This section will have all the logic that takes the Robot to every location
@@ -37,23 +38,39 @@ public class Roomba implements Directions {
 
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
-		roomba.move();
-		roomba.move();
-		for(int i= 1;i <= 6; i++)
-		{
-			roomba.pickBeeper();
-			
-		}
 		
 		roomba.turnLeft();
 		roomba.move();
 		roomba.move();
-		roomba.move();
-		roomba.turnLeft();
-		for(int i=1; i<= 3; i++) {
-			roomba.pickBeeper();
+		
+		while(roomba.nextToABeeper())
+		{
+		
+			 roomba.pickBeeper();
+			 
 		}
+		
+        roomba.move();
+        int i=1;
+		while (i<=8)
+		{
+			i++;
+		} 
 
+		  while(roomba.nextToABeeper())
+		{
+		
+			 roomba.pickBeeper();
+			 
+		}
+		roomba.move();
+		
+		
+		
+		
+		
+    
+        //roomba.move();
          
 
 		int totalBeepers = 0; // Need to move this somewhere else.
