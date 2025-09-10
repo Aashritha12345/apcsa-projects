@@ -30,7 +30,7 @@ public class Roomba implements Directions {
 		World.readWorld(worldName);
 		World.setVisible(true);
 		World.setDelay(10);
-
+      
 		/**
 		 * This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -38,8 +38,11 @@ public class Roomba implements Directions {
 		 */
 
 		// the line below causes a null pointer exception
+	
 		// what is that and why are we getting it?
-{
+          int numberBeepers =0;
+		{
+
 
 	
 	    while (roomba.frontIsClear())
@@ -47,6 +50,8 @@ public class Roomba implements Directions {
 while (roomba.nextToABeeper())
 {
 	roomba.pickBeeper();
+		numberBeepers ++;
+
 }
 	roomba.move();
 }
@@ -65,6 +70,8 @@ roomba.turnLeft();}
 while (roomba.nextToABeeper())
 {
 	roomba.pickBeeper();
+		numberBeepers ++;
+
 }
 	roomba.move();
 }
@@ -86,6 +93,8 @@ while (roomba.nextToABeeper())
 while (roomba.nextToABeeper())
 {
 	roomba.pickBeeper();
+		numberBeepers ++;
+
 }
 	roomba.move();
 }
@@ -103,6 +112,8 @@ roomba.turnLeft();}
 while (roomba.nextToABeeper())
 {
 	roomba.pickBeeper();
+		numberBeepers ++;
+
 }
 	roomba.move();
 }
@@ -124,11 +135,13 @@ while (roomba.nextToABeeper())
 while (roomba.nextToABeeper())
 {
 	roomba.pickBeeper();
+	numberBeepers ++;
 }
 	roomba.move();
 }
-}
 
+}
+    System.out.println("The total number of beepers picked up is " + numberBeepers);
 
        
 
