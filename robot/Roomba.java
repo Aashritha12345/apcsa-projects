@@ -39,7 +39,9 @@ public class Roomba implements Directions {
 
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
+{
 
+	
 	    while (roomba.frontIsClear())
 {
 while (roomba.nextToABeeper())
@@ -49,25 +51,82 @@ while (roomba.nextToABeeper())
 	roomba.move();
 }
 
+ if (roomba.frontIsClear()==false)
  
 if (roomba.facingEast());{
 
 roomba.turnLeft();
 roomba.move();
-roomba.turnLeft();
+roomba.turnLeft();}
 
-} 
- else
+ while (roomba.frontIsClear())
+	
 {
+while (roomba.nextToABeeper())
+{
+	roomba.pickBeeper();
+}
+	roomba.move();
+}
 
+ if (roomba.facingWest());{
 	roomba.turnLeft();
 			roomba.turnLeft();
-		roomba.turnLeft();
-		roomba.move();
+			roomba.turnLeft();
+			roomba.move();
 			roomba.turnLeft();
 			roomba.turnLeft();
 			roomba.turnLeft();
 
+}
+
+  while (roomba.frontIsClear())
+	
+{
+while (roomba.nextToABeeper())
+{
+	roomba.pickBeeper();
+}
+	roomba.move();
+}
+ if (roomba.frontIsClear()==false)
+ 
+if (roomba.facingEast());{
+
+roomba.turnLeft();
+roomba.move();
+roomba.turnLeft();}
+
+ while (roomba.frontIsClear())
+	
+{
+while (roomba.nextToABeeper())
+{
+	roomba.pickBeeper();
+}
+	roomba.move();
+}
+
+ if (roomba.facingWest());{
+	roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.move();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.turnLeft();
+
+}
+
+  while (roomba.frontIsClear())
+	
+{
+while (roomba.nextToABeeper())
+{
+	roomba.pickBeeper();
+}
+	roomba.move();
+}
 }
 
 
