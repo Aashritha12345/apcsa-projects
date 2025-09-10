@@ -48,9 +48,30 @@ while (roomba.nextToABeeper())
 }
 	roomba.move();
 }
-int a=2;
- 
 
+ 
+if (roomba.facingEast());{
+
+roomba.turnLeft();
+roomba.move();
+roomba.turnLeft();
+
+} 
+ else
+{
+
+	roomba.turnLeft();
+			roomba.turnLeft();
+		roomba.turnLeft();
+		roomba.move();
+			roomba.turnLeft();
+			roomba.turnLeft();
+			roomba.turnLeft();
+
+}
+
+
+       
 
 
 
