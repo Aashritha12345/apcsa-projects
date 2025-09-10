@@ -40,10 +40,35 @@ public class Roomba implements Directions {
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
 
-	    
+	    while (roomba.frontIsClear())
+{
+while (roomba.nextToABeeper())
+{
+	roomba.pickBeeper();
+}
+	roomba.move();
+}
+int a=2;
+ 
 
-		
-        int a=1;
+
+
+
+		 
+
+
+
+
+
+
+
+
+
+
+
+
+        /*this is previous code
+		int a=1;
 		while (a<=5)	
 		{ 
 		int i = 1;
@@ -52,8 +77,10 @@ public class Roomba implements Directions {
 
 				roomba.pickBeeper();
 				totalBeepers++;
+				
 
 			}
+			
 			roomba.move();
 			i++;
 			System.err.print("running in loop no");
@@ -77,10 +104,10 @@ public class Roomba implements Directions {
 			roomba.turnLeft();
 			}
 
+
 		a++;
-	} 
-	
-			
+
+	} */	
         
 		// This method should return the total number of beepers cleaned up.
 		return totalBeepers;
