@@ -31,12 +31,13 @@ public class Roomba implements Directions {
 		World.readWorld(worldName);
 		World.setVisible(true);
 		World.setDelay(0);
-		int totalSpaces=1;
+		double totalSpaces=1;
        int largestPile = 0;
 	   int pileSize= 0;
 	   int pileLocationX = 0;
 	   int pileLocationY= 0;
-	   int numberpiles=0;
+	   double numberpiles=0;
+	   double answer  =0;
 		/**
 		 * This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -46,7 +47,7 @@ public class Roomba implements Directions {
 		// the line below causes a null pointer exception
 
 		// what is that and why are we getting it?
-		int numberBeepers = 0;
+		
 		boolean isDestinationReached=false;
         while (isDestinationReached==false)
 		{
@@ -109,6 +110,7 @@ public class Roomba implements Directions {
 			}
 			
 		}
+		 answer  = (double) numberpiles/ (double) totalSpaces;
 	}
 		//totalBeepers/
 		System.out.println("The total number of beepers picked up is " + totalBeepers);
@@ -116,6 +118,7 @@ public class Roomba implements Directions {
 		System.out.println("The largest beeper pile has " + largestPile);
 		System.out.println("The largest pile is located at " + pileLocationX +" , " + pileLocationY );
 		System.out.println("The average pile size is " + numberpiles);
+		System.out.println("The percent dirty is " + answer);
 	
 
 
