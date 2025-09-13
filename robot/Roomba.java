@@ -36,8 +36,9 @@ public class Roomba implements Directions {
 	   int pileSize= 0;
 	   int pileLocationX = 0;
 	   int pileLocationY= 0;
-	   double numberpiles=0;
+	   int numberpiles=0;
 	   double answer  =0;
+	   double avgpileSize = 0;
 		/**
 		 * This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -59,14 +60,11 @@ public class Roomba implements Directions {
 				
 				totalBeepers++;
 			}
-			if (pileSize==0)
-			{
-               
+			if (pileSize>0) {
+			numberpiles ++;
 			}
-			else
-			{
-				numberpiles++;
-			}
+			
+            
 			if (pileSize > largestPile)
 			{
 				largestPile = pileSize;
@@ -112,12 +110,18 @@ public class Roomba implements Directions {
 		}
 		 answer  = (double) numberpiles/ (double) totalSpaces;
 	}
-		//totalBeepers/
+       if (numberpiles > 0) {
+		 
+		avgpileSize = (double) totalBeepers/numberpiles;
+		  
+	   } 
+
+
 		System.out.println("The total number of beepers picked up is " + totalBeepers);
 		System.out.println("The total area covered by roomba is " + totalSpaces);
 		System.out.println("The largest beeper pile has " + largestPile);
 		System.out.println("The largest pile is located at " + pileLocationX +" , " + pileLocationY );
-		System.out.println("The average pile size is " + numberpiles);
+		System.out.println("The average pile size is " + avgpileSize);
 		System.out.println("The percent dirty is " + answer);
 	
 
