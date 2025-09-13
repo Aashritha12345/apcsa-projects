@@ -118,7 +118,7 @@ public class Roomba implements Directions {
 
 
 		System.out.println("The total number of beepers picked up is " + totalBeepers);
-		System.out.println("The total area covered by roomba is " + totalSpaces);
+		System.out.println("The total area covered by roomba is " +(int) totalSpaces);
 		System.out.println("The largest beeper pile has " + largestPile);
 		System.out.println("The largest pile is located at " + pileLocationX +" , " + pileLocationY );
 		System.out.println("The average pile size is " + avgpileSize);
