@@ -7,17 +7,17 @@ public class Roomba implements Directions {
 	// Main method to make this self-contained
 	public static void main(String[] args) {
 		// LEAVE THIS ALONE!!!!!!
-		String worldName = "robot/TestWorld-1.wld";
+		String worldName = "robot/finalTestWorld2024.wld";
 		//String worldName = "robot/basicRoom.wld";
 
 		Roomba cleaner = new Roomba();
-		int totalBeepers = cleaner.cleanRoom(worldName, 25, 11);
+		int totalBeepers = cleaner.cleanRoom(worldName, 26, 101);
 		System.out.println("Roomba cleaned up a total of " + totalBeepers + " beepers.");
 
 	}
 
 	// declared here so it is visible in all the methods!
-	private Robot roomba = new Robot(25, 11, East, 10);;
+	private Robot roomba = new Robot(26, 101, East, 10);
 
 	// You will need to add many variables!!
 
@@ -120,7 +120,7 @@ public class Roomba implements Directions {
 		System.out.println("The total number of beepers picked up is " + totalBeepers);
 		System.out.println("The total area covered by roomba is " +(int) totalSpaces);
 		System.out.println("The largest beeper pile has " + largestPile);
-		System.out.println("The largest pile is located at " + pileLocationX +" , " + pileLocationY );
+		System.out.println("The largest pile is located at " + pileLocationY +" , " + pileLocationX );
 		System.out.println("The average pile size is " + avgpileSize);
 		System.out.println("The percent dirty is " + answer);
 	
