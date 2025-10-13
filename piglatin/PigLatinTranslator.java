@@ -23,7 +23,7 @@ public class PigLatinTranslator {
         // This method must call translateWord once for each word in the string.
         result = translateWord(input);
 
-        return result;
+        return result; 
     }
 
     private static String translateWord(String input) {
