@@ -24,53 +24,32 @@ public class PigLatinTranslator {
     private static String translateWord(String input) {
         System.out.println("  -> translateWord('" + input + "')");
 String result = "";
-         if (input.startsWith("a")|| input.startsWith("e")||input.startsWith("i")||input.startsWith("o")||input.startsWith("u")||input.startsWith("y"))   {
-
-
-           return input + "ay";
-
-         }      
-        
-        if (!(input.charAt(1).equals('a'))|| !(input.charAt(1).equals('e'))||!(input.charAt(1).equals('i'))||(input.charAt(1).equals('o'))||(input.charAt(1).equals('u'))||(input.charAt(1).equals('y'))){
-        
-            return input.substring(2) + input.substring(0,2) + 'ay';
-
-
-        } else {
-
-            return input.substring(1)+ input.substring (0,1) + 'ay';
-        }
-        
-        
-        
-         // TODO: Replace this code to correctly translate a single word.
-        // Start here first!
-       // String vowels = "aeiouy";
-       // if (vowels.indexOf(test)!=-1)
-        //for (int i=0;i<input.length(); i++)
-      //  {
-       //        System.out.println(test + "is a vowel");
-       // }
-        //char a;
-        //a.isuUppercase()
-        //Pig 
-        //g Pi ay
-        //G pi ay
-        //if (input.charAt(0).isuUppercase()){
-            //the input have first char capped 
-        //}
-        // TODO: translate a string input, store in result.
-        // The input to this function could be any English string.
-        // It may be made up of many words.
-        // This method must call translateWord once for each word in the string.
-        
-        // This is the first place to work.
-
-        return result;
+        for (int i=0; i<input.length(); i++)
+    {
+      String currentLetter = input.substring(i,i+1);
+      if (isVowel(currentLetter))
+      {
+        fVowel=i;
+        break;
+      }
+    }
+    return(input.substring(fVowel)+input.substring(0, fVowel)+"ay");
     }
 
     // Add additonal private methods here.
     // For example, I had one like this:
     // private static String capitalizeFirstLetter(String input)
-
+    static int fVowel;
+    public static boolean isVowel(String letter)
+  {
+    if (letter.length() == 1)
+    {
+      String vowels = "aeiouy";
+      if (vowels.indexOf(letter) != -1)
+      {
+        return true;
+      }
+    }
+    return false;
+  }
 }
