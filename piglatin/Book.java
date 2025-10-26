@@ -12,7 +12,7 @@ public class Book {
     Book() {
         // Empty book - no code needed here.
     }
-
+       
     // Helper to debug code
     // Prints out a range of lines from a book
     public void printlines(int start, int length) {
@@ -49,6 +49,14 @@ public class Book {
     public void readFromString(String title, String string) {
         // load a book from an input string.
         this.title = title;
+         text.clear();
+         Scanner input = new Scanner(string);
+    while (input.hasNextLine())
+    {
+		// get the next line and add it to text.
+        text.add(input.nextLine());
+    }
+    input.close();
 
         // TODO: use Scanner to populate the book
         // use: text.add(line) to add a line to the book.
@@ -58,9 +66,16 @@ public class Book {
         // load a book from a URL.
         // https://docs.oracle.com/javase/tutorial/networking/urls/readingURL.html
         this.title = title;
+        text.clear();
 
         try {
             URL bookUrl = URI.create(url).toURL();
+             Scanner scanner = new Scanner(bookUrl.openStream());
+            while (scanner.hasNextLine()) {
+                // add each line from the URL to the book
+                text.add(scanner.nextLine());
+            }
+            scanner.close();
             // TODO: use Scanner to populate the book
             // Scanner can open a file on a URL like this:
             // Scanner(bookUrl.openStream())
@@ -73,5 +88,17 @@ public class Book {
     void writeToFile(String name) {
         // TODO: Add code here to write the contents of the book to a file.
         // Must write to file using provided name.
+    if (name == null || name.isEmpty()) {
+            System.err.println("Invalid filename");
+            return;
+        }
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter(name))) {
+            for (String line : text) {
+                writer.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

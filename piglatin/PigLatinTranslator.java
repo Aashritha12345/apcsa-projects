@@ -24,6 +24,8 @@ public class PigLatinTranslator {
     private static String translateWord(String input) {
         System.out.println("  -> translateWord('" + input + "')");
 String result = "";
+
+fVowel=-1;
         for (int i=0; i<input.length(); i++)
     {
       String currentLetter = input.substring(i,i+1);
@@ -33,8 +35,30 @@ String result = "";
         break;
       }
     }
-    return(input.substring(fVowel)+input.substring(0, fVowel)+"ay");
-    }
+String raw;
+if (fVowel==0){
+
+  raw=input + "ay";
+
+} else if (fVowel==-1){
+
+  raw= input+ "ay";
+} else {
+
+  raw=input.substring(fVowel)+input.substring(0, fVowel)+"ay";
+}
+if (Character.isUpperCase(input.charAt(0))) {
+
+  raw= Character.toUpperCase(raw.charAt(0)) + raw.substring(1).toLowerCase();
+  if(raw.length()==1){
+
+    raw=raw.toUpperCase();
+  } else {
+
+    raw= Character.toUpperCase(raw.charAt(0))+ raw.substring(1).toLowerCase();
+  }
+}
+return raw;    }
 
     // Add additonal private methods here.
     // For example, I had one like this:
@@ -51,5 +75,7 @@ String result = "";
       }
     }
     return false;
+    
   }
+
 }
