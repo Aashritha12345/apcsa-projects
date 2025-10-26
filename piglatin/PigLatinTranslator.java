@@ -2,8 +2,14 @@ package piglatin;
 
 public class PigLatinTranslator {
     public static Book translate(Book input) {
-        Book translatedBook = new Book();
-
+        if (input==null){
+          return null;
+        }
+                Book translatedBook = new Book();
+        translatedBook.setTitle(input.getTitle());
+        for (int i = 0; i < input.getLineCount(); i++) {
+            translatedBook.appendLine(translate(input.getLine(i)));
+        }
         // TODO: Add code here to populate translatedBook with a translation of the
         // input book.
         // Curent do-nothing code will return an empty book.
@@ -25,57 +31,48 @@ public class PigLatinTranslator {
         System.out.println("  -> translateWord('" + input + "')");
 String result = "";
 
-fVowel=-1;
-        for (int i=0; i<input.length(); i++)
-    {
-      String currentLetter = input.substring(i,i+1);
-      if (isVowel(currentLetter))
-      {
-        fVowel=i;
-        break;
-      }
-    }
+if (input==null|| input.isEmpty()) return input;
+boolean origCap = Character.isUpperCase(input.charAt(0));
+int fv=-1;
+for (int i=0;i<input.length();i++){
+
+  char c= Character.toLowerCase(input.charAt(i));
+  if ("aeiou".indexOf(c)>=0|| (c=='y' && i!=0)){
+    fv=i;
+    break;
+  }
+}
 String raw;
-if (fVowel==0){
+if(fv==0){
 
   raw=input + "ay";
 
-} else if (fVowel==-1){
+}else if (fv==-1){
 
-  raw= input+ "ay";
+raw=input+ "ay";
 } else {
 
-  raw=input.substring(fVowel)+input.substring(0, fVowel)+"ay";
-}
-if (Character.isUpperCase(input.charAt(0))) {
+  raw=input.substring(fv)+ input.substring(0,fv)+"ay";
+  raw=raw.toLowerCase();
+  if (origCap) {
 
-  raw= Character.toUpperCase(raw.charAt(0)) + raw.substring(1).toLowerCase();
-  if(raw.length()==1){
-
-    raw=raw.toUpperCase();
-  } else {
-
-    raw= Character.toUpperCase(raw.charAt(0))+ raw.substring(1).toLowerCase();
+    raw= Character.toUpperCase(raw.charAt(0))+ raw.substring(1);
   }
+
 }
-return raw;    }
+return raw;   
+ }
 
     // Add additonal private methods here.
     // For example, I had one like this:
     // private static String capitalizeFirstLetter(String input)
-    static int fVowel;
     public static boolean isVowel(String letter)
   {
-    if (letter.length() == 1)
-    {
-      String vowels = "aeiouy";
-      if (vowels.indexOf(letter) != -1)
-      {
-        return true;
-      }
-    }
-    return false;
-    
+    if(letter==null || letter.length()!=1) return false;
+    char c= Character.toLowerCase(letter.charAt(0));
+    return "aeiouy".indexOf(c)!=-1;
+
+
   }
 
 }
