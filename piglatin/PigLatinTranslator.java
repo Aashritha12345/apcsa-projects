@@ -53,6 +53,7 @@ raw=input+ "ay";
 } else {
 
   raw=input.substring(fv)+ input.substring(0,fv)+"ay";
+}
   raw=raw.toLowerCase();
   if (origCap) {
 
