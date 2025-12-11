@@ -27,10 +27,7 @@ public class GameOfLife implements Board {
     public void run(int turns) {
         for (int i = 0; i < turns; i++) {
             step();
-        }
-
-        // call step the number of times requested
-        
+        }        
 
     }
 
@@ -43,18 +40,13 @@ public class GameOfLife implements Board {
         for (int x = 0; x < board.length; x++) {
             for (int y = 0; y < board[0].length; y++) {
                 int neighbors = countNeighbors(x, y);
-                if (get(x, y) == 1) {
-                    if (neighbors < 2 || neighbors > 3) {
-                        newBoard[x][y] = 0; 
-                    } else {
-                        newBoard[x][y] = 1; 
-                    }
-                } else {
-                    if (neighbors == 3) {
-                        newBoard[x][y] = 1; 
-                    } else {
-                        newBoard[x][y] = 0;
-                    }
+               boolean alive = (get(x, y) == 1);
+
+             if (alive && (neighbors == 2 || neighbors == 3)) {
+                 newBoard[x][y] = 1;
+                } else if (!alive && neighbors == 3) {
+                    newBoard[x][y] = 1;
+                     }
                 }
             }
         }
@@ -66,9 +58,7 @@ public class GameOfLife implements Board {
         int count = 0;
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
-                if (i == 0 && j == 0) {
-                    continue; // Skip the current cell
-                }
+                if (i == 0 && j == 0) continue;
                 count += get(x + i, y + j);
             }
         }
