@@ -44,27 +44,34 @@ public class GameOfLife implements Board {
             for (int y = 0; y < board[0].length; y++) {
                 int neighbors = countNeighbors(x, y);
                 if (get(x, y) == 1) {
-                    // Cell is currently alive
                     if (neighbors < 2 || neighbors > 3) {
-                        newBoard[x][y] = 0; // Cell dies
+                        newBoard[x][y] = 0; 
                     } else {
-                        newBoard[x][y] = 1; // Cell lives
+                        newBoard[x][y] = 1; 
                     }
                 } else {
-                    // Cell is currently dead
                     if (neighbors == 3) {
-                        newBoard[x][y] = 1; // Cell becomes alive
+                        newBoard[x][y] = 1; 
                     } else {
-                        newBoard[x][y] = 0; // Cell remains dead
+                        newBoard[x][y] = 0;
                     }
                 }
             }
-        }        board = newBoard;
+        }
+        board = newBoard;
     }
 
 
     public int countNeighbors(int x, int y) {
         int count = 0;
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (i == 0 && j == 0) {
+                    continue; // Skip the current cell
+                }
+                count += get(x + i, y + j);
+            }
+        }
         // count the number of neighbors the cell has
         // use the get(x,y) method to read any board state you need.
         return count;
