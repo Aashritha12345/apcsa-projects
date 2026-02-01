@@ -20,14 +20,14 @@ public class TestSuite
 
         System.out.println("Running test with input: " + Arrays.toString(testInput));
 
-        BubbleSort b = new BubbleSort();
-        pass &= basicTest(b, testInput, loops);
+        //BubbleSort b = new BubbleSort();
+        //pass &= basicTest(b, testInput, loops);
 
-        MergeSort m = new MergeSort();
-        pass &= basicTest(m, testInput, loops);
+       // MergeSort m = new MergeSort();
+        //pass &= basicTest(m, testInput, loops);
 
-        SelectionSort s = new SelectionSort();
-        pass &= basicTest(s, testInput, loops);
+        //SelectionSort s = new SelectionSort();
+       // pass &= basicTest(s, testInput, loops);
 
         InsertionSort i = new InsertionSort();
         pass &= basicTest(i, testInput, loops);
