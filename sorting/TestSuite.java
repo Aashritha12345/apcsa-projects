@@ -1,9 +1,18 @@
 package sorting;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class TestSuite
 {
+    public static int[] generateRandomArray(int size) {
+    int[] array = new int[size];
+    Random random = new Random();
+    for (int i = 0; i < size; i++) {
+        array[i] = random.nextInt(1000);
+    }
+    return array;
+}
     // Run a bunch of basic tests on your sorting methods
     public static void run(int[] testInput, int loops)
     {
