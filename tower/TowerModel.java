@@ -18,7 +18,7 @@ public class TowerModel {
         =    |    |
        ===   |    |
       =====  |    |
-     ------------------
+     -----------------
         0    1    2
 
      Example of a game of height three in the starting position.
