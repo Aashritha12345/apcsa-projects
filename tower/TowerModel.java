@@ -39,6 +39,7 @@ public class TowerModel {
     }
 
     // get the total number of disks
+    
     public int height()
     {
         return towerHeight;
@@ -50,7 +51,19 @@ public class TowerModel {
     {
         System.out.println("Move #" + ++moveCounter + " from " + source + " to " + destination);
         // TODO!!
-    }
+        int disk = towers[source].pop();
+        int topOfDestination= towers[destination].peek();
+        if (topOfDestination==0 || disk< topOfDestination){
+
+           towers[destination].push(disk);
+          }
+            else{
+               towers[source].push(disk);
+               System.out.println("Invalid move! Disk " + disk + " is larger than " + topOfDestination);
+
+            }
+   
+        }
 
     // Helper method to nicely print the current model state.
     public void print()
