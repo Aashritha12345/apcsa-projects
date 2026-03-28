@@ -87,7 +87,7 @@ public class TowerModel {
         for (int i = 0; i < towers.length; i++) {
             System.out.print(" =");
         }
-        System.out.println();
+        System.out.println(); 
     }
 
     // Test instrumentation
